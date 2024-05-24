@@ -11,7 +11,7 @@ items = {
 }
 
 offers = {
-    "A": (3, 130),
+    "A": [(3, 130), (5, 200)],
     "B": (2, 45),
 }
 
@@ -43,3 +43,4 @@ def checkout(skus):
         else:
             sum += items.get(code) * skus_counter.get(code)
     return sum
+
