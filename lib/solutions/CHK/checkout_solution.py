@@ -32,7 +32,7 @@ def checkout(skus):
         if not items.get(code):
             return -1
         occurance = skus_counter.get(code)
-        if occurance > 1:
+        if occurance > 0:
             promo_list = offers.get(code, [])
             promo_list.sort(reverse=True, key=lambda x: x[0])       
             # promo = offers.get(code)
@@ -46,11 +46,12 @@ def checkout(skus):
                 else:
                     sum += items.get(code) * occurance
                     occurance = 0
-            # else:
-            #     sum += occurance * items.get(code)
-        else:
-            sum += items.get(code) * skus_counter.get(code)
+            if occurance > 0:
+                sum += occurance * items.get(code)
+        # else:
+        #     sum += items.get(code) * skus_counter.get(code)
     return sum
+
 
 
 
