@@ -27,7 +27,10 @@ def checkout(skus):
                 quot = occurance // promo[0]
                 remainder = occurance % promo[0]
                 sum += (promo[1] * quot) + (items.get(code) * remainder)
+            else:
+                sum += occurance * items.get(code)
         else:
             sum += items.get(code)
     return sum
+
 
