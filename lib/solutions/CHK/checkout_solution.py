@@ -43,6 +43,3 @@ def checkout(skus):
         else:
             sum += items.get(code) * skus_counter.get(code)
     return sum
-
-
-
