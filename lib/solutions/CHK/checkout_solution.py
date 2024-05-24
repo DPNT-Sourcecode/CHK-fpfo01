@@ -22,16 +22,17 @@ special_offers = {
 def checkout(skus):
     skus_counter = Counter(list(skus))
     sum = 0
+    for code, (needed, free_item) in special_offers.items():
+        if items.get(code):
+            num_free_items = skus_counter.get(code) // needed
+            if free_item in skus_counter:
+                skus_counter[free_item] = max(0, skus_counter[free_item] - num_free_items)
+
     for code in skus_counter.keys():
         if not items.get(code):
             return -1
         occurance = skus_counter.get(code)
-        if occurance > 1:
-            special_promo = special_offers.get(code)
-            if special_promo:
-                quot = occurance // special_promo[0]
-                sum -= items.get(special_promo[1]) * quot
-            
+        if occurance > 1:          
             promo = offers.get(code)
             if promo:
                 quot = occurance // promo[0]
@@ -42,3 +43,4 @@ def checkout(skus):
         else:
             sum += items.get(code)
     return sum
+
