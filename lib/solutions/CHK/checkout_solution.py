@@ -12,7 +12,7 @@ items = {
 
 offers = {
     "A": [(3, 130), (5, 200)],
-    "B": (2, 45),
+    "B": [(2, 45)],
 }
 
 special_offers = {
@@ -33,16 +33,24 @@ def checkout(skus):
             return -1
         occurance = skus_counter.get(code)
         if occurance > 1:
-            promo_list = offers.get(code, [])       
-            promo = offers.get(code)
-            if promo:
-                quot = occurance // promo[0]
-                remainder = occurance % promo[0]
-                sum += (promo[1] * quot) + (items.get(code) * remainder)
+            promo_list = offers.get(code, [])
+            promo_list.sort(reverse=True, key=lambda x: x[0])       
+            # promo = offers.get(code)
+            # if promo_list:
+            for promo in promo_list:
+                if occurance >= promo[0]:
+                    quot = occurance // promo[0]
+                    remainder = occurance % promo[0]
+                    sum += (promo[1] * quot) + (items.get(code) * remainder)
+                    occurance = remainder
+                else:
+                    sum += items.get(code) * occurance
+                    occurance = 0
             else:
                 sum += occurance * items.get(code)
         else:
             sum += items.get(code) * skus_counter.get(code)
     return sum
+
 
 
