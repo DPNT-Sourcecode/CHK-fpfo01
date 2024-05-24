@@ -9,3 +9,6 @@ def test_checkout():
 
     result = checkout("ABB")
     assert result == 95
+
+    result = checkout("E")
+    assert result == -1

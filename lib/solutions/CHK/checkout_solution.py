@@ -18,6 +18,8 @@ def checkout(skus):
     skus_counter = Counter(list(skus))
     sum = 0
     for code in skus_counter.keys():
+        if not items.get(code):
+            return -1
         occurance = skus_counter.get(code)
         if occurance > 1:
             promo = offers.get(code)
