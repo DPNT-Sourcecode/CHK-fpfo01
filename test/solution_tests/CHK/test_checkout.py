@@ -22,5 +22,8 @@ def test_checkout():
     result = checkout("EEEEBB")
     assert result == 160
 
-    # result = checkout("EEBB")
-    # assert result == 110
+    result = checkout("EEBB")
+    assert result == 110
+
+    result = checkout("EEEBB")
+    assert result == 150
