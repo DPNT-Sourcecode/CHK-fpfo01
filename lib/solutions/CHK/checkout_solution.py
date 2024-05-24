@@ -23,7 +23,8 @@ def checkout(skus):
     skus_counter = Counter(list(skus))
     sum = 0
     for code, (needed, free_item) in special_offers.items():
-        if items.get(code):
+        print(code)
+        if skus_counter.get(code):
             print(code, skus_counter)
             num_free_items = skus_counter.get(code) // needed
             if free_item in skus_counter:
@@ -44,5 +45,6 @@ def checkout(skus):
         else:
             sum += items.get(code)
     return sum
+
 
 
