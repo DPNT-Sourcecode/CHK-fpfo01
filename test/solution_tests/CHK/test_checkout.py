@@ -10,8 +10,14 @@ def test_checkout():
     result = checkout("ABB")
     assert result == 95
 
-    result = checkout("E")
+    result = checkout("Z")
     assert result == -1
 
     result = checkout("ABCDABCD")
     assert result == 215
+
+    result = checkout("EEB")
+    assert result == 80
+
+    # result = checkout("EEBB")
+    # assert result == 110
