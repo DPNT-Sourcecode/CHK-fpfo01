@@ -19,8 +19,8 @@ def test_checkout():
     result = checkout("EEB")
     assert result == 80
 
-    # result = checkout("EEEEBB")
-    # assert result == 160
+    result = checkout("EEEEBB")
+    assert result == 160
 
     # result = checkout("EEBB")
     # assert result == 110

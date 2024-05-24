@@ -29,8 +29,8 @@ def checkout(skus):
         if occurance > 1:
             special_promo = special_offers.get(code)
             if special_promo:
-                q
-            
+                quot = occurance // special_promo[0]
+                sum -= items.get(special_promo[1]) * quot
             
             promo = offers.get(code)
             if promo:
