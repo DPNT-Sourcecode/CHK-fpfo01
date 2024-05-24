@@ -28,6 +28,8 @@ def checkout(skus):
         occurance = skus_counter.get(code)
         if occurance > 1:
             special_promo = special_offers.get(code)
+            if special_promo:
+                q
             
             
             promo = offers.get(code)
