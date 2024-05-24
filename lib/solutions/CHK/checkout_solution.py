@@ -46,11 +46,12 @@ def checkout(skus):
                 else:
                     sum += items.get(code) * occurance
                     occurance = 0
-            else:
-                sum += occurance * items.get(code)
+            # else:
+            #     sum += occurance * items.get(code)
         else:
             sum += items.get(code) * skus_counter.get(code)
     return sum
+
 
 
 
