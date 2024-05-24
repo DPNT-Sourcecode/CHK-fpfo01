@@ -21,12 +21,10 @@ def checkout(skus):
         occurance = skus_counter.get(code)
         if occurance > 1:
             promo = offers.get(code)
-            # if promo and occurance % promo[0] == 0:
-            #     sum += promo[1]
             if promo:
                 quot = occurance // promo[0]
                 remainder = occurance % promo[0]
-                sum += (promo[1] * quot) + (promo[1] * remainder)
+                sum += (promo[1] * quot) + (items.get(code) * remainder)
         else:
             sum += items.get(code)
     return sum
