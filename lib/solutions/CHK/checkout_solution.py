@@ -15,4 +15,7 @@ offers = {
 
 def checkout(skus):
     skus_list = list(skus)
-    return items.get(skus_list[0])
+    sum = 0
+    for code in skus_list:
+        sum += items.get(code)
+    return sum
