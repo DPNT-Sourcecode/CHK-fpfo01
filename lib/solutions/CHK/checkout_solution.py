@@ -45,10 +45,3 @@ def checkout(skus):
             if occurance > 0:
                 sum += occurance * items.get(code)
     return sum
-
-
-
-
-
-
-
