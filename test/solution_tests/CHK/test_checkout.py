@@ -12,3 +12,6 @@ def test_checkout():
 
     result = checkout("E")
     assert result == -1
+
+    result = checkout("ABCDABCD")
+    assert result == 215
