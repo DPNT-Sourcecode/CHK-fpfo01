@@ -4,11 +4,11 @@ def test_checkout():
     result = checkout("AAAAA")
     assert result == 200
 
-    # result = checkout("AAAAAA")
-    # assert result == 250
+    result = checkout("AAAAAA")
+    assert result == 250
 
-    # result = checkout("AAAAAAA")
-    # assert result == 330
+    result = checkout("AAAAAAAA")
+    assert result == 330
 
     result = checkout("AAAA")
     assert result == 180
@@ -36,3 +36,4 @@ def test_checkout():
 
     result = checkout("EEEBB")
     assert result == 150
+

@@ -35,22 +35,17 @@ def checkout(skus):
         if occurance > 0:
             promo_list = offers.get(code, [])
             promo_list.sort(reverse=True, key=lambda x: x[0])       
-            # promo = offers.get(code)
-            # if promo_list:
+
             for promo in promo_list:
                 if occurance >= promo[0]:
                     quot = occurance // promo[0]
                     remainder = occurance % promo[0]
-                    sum += (promo[1] * quot) + (items.get(code) * remainder)
+                    sum += (promo[1] * quot)
                     occurance = remainder
-                # else:
-                #     sum += items.get(code) * occurance
-                #     occurance = 0
             if occurance > 0:
                 sum += occurance * items.get(code)
-        # else:
-        #     sum += items.get(code) * skus_counter.get(code)
     return sum
+
 
 
 
