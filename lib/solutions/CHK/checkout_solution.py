@@ -32,7 +32,8 @@ def checkout(skus):
         if not items.get(code):
             return -1
         occurance = skus_counter.get(code)
-        if occurance > 1:          
+        if occurance > 1:
+            promo_list = offers.get(code, [])       
             promo = offers.get(code)
             if promo:
                 quot = occurance // promo[0]
@@ -43,4 +44,5 @@ def checkout(skus):
         else:
             sum += items.get(code) * skus_counter.get(code)
     return sum
+
 
