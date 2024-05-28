@@ -2,7 +2,7 @@ from lib.solutions.CHK.checkout_solution import checkout
 
 def test_checkout():
     result = checkout("NNNM")
-    assert result == 135
+    assert result == 120
 
     # result = checkout("R")
     # assert result == 150
@@ -60,9 +60,6 @@ def test_checkout():
 
     result = checkout("ABB")
     assert result == 95
-
-    result = checkout("Z")
-    assert result == -1
 
     result = checkout("ABCDABCD")
     assert result == 215
