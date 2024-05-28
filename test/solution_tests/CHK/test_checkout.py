@@ -1,6 +1,9 @@
 from lib.solutions.CHK.checkout_solution import checkout
 
 def test_checkout():
+    result = checkout("SSS")
+    assert result == 45
+
     result = checkout("UUUU")
     assert result == 120
 
