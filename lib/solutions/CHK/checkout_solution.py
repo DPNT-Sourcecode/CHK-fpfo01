@@ -49,15 +49,20 @@ special_offers = {
     "U": (3, "U"),
 }
 
-group_offers = {
-    ("S", "T", "X", "Y", "Z") # 3 items for 45
-}
+group_items = {"S", "T", "X", "Y", "Z"}
+
+group_offer = (3, 45)
+
 
 def checkout(skus):
     skus_counter = Counter(list(skus))
     sum = 0
     
-    # for code in group_offers.items()
+    group_promo = []
+    for code in group_items:
+        if code in skus_counter and skus_counter.get(code) > 0:
+            group_promo.push(code)
+            
     
     for code, (needed, free_item) in special_offers.items():
         if skus_counter.get(code) and free_item in skus_counter:
@@ -89,3 +94,4 @@ def checkout(skus):
             if occurance > 0:
                 sum += occurance * items.get(code)
     return sum
+
