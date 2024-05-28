@@ -9,11 +9,13 @@ items = {
     "D": 15,
     "E": 40,
     "F": 10,
+    "H": 10,
 }
 
 offers = {
     "A": [(3, 130), (5, 200)],
     "B": [(2, 45)],
+    "H": [(5, 45), (10, 80)],
 }
 
 special_offers = {
@@ -54,6 +56,7 @@ def checkout(skus):
             if occurance > 0:
                 sum += occurance * items.get(code)
     return sum
+
 
 
 
