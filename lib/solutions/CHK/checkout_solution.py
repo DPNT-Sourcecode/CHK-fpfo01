@@ -29,7 +29,9 @@ def checkout(skus):
             applied = 0
             while True:
                 num_free_items = (skus_counter.get(code) // needed) - applied
-                if (num_free_items > 0 and code != free_item) or (num_free_items > 1 and code == free_item):
+                if num_free_items > 0:
+                    if code == free_item and skus_counter.get(code) <= num_free_items:
+                        break
                     skus_counter[free_item] = max(0, skus_counter[free_item] - 1)
                     applied += 1
                 else:
@@ -52,4 +54,5 @@ def checkout(skus):
             if occurance > 0:
                 sum += occurance * items.get(code)
     return sum
+
 
