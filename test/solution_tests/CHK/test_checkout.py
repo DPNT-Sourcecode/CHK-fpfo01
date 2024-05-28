@@ -1,14 +1,17 @@
 from lib.solutions.CHK.checkout_solution import checkout
 
 def test_checkout():
+    result = checkout("UUUU")
+    assert result == 120
+
+    result = checkout("UUU")
+    assert result == 120
+
     result = checkout("NNNM")
     assert result == 120
 
-    # result = checkout("R")
-    # assert result == 150
-
-    # result = checkout("U")
-    # assert result == 150
+    result = checkout("RRRQ")
+    assert result == 150
 
     result = checkout("VV")
     assert result == 90
@@ -75,3 +78,4 @@ def test_checkout():
 
     result = checkout("EEEBB")
     assert result == 150
+
