@@ -63,13 +63,14 @@ def checkout(skus):
         if code in skus_counter and skus_counter.get(code) > 0:
             group_promo += [(items.get(code), code)] * skus_counter.get(code)
     group_promo.sort(key=lambda x: x[0])
-    
+    print(group_promo)
     while len(group_promo) >= group_offer[0]:
         apply_to_codes = group_promo[-3:]
+        print(apply_to_codes)
         del group_promo[-3:]
         for code in apply_to_codes:
             skus_counter[code] = skus_counter[code] - 1
-        sum += group_promo[1]          
+        sum += group_offer[1]          
     
     for code, (needed, free_item) in special_offers.items():
         if skus_counter.get(code) and free_item in skus_counter:
@@ -101,5 +102,6 @@ def checkout(skus):
             if occurance > 0:
                 sum += occurance * items.get(code)
     return sum
+
 
 
