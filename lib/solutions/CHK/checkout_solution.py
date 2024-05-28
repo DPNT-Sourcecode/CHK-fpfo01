@@ -8,6 +8,7 @@ items = {
     "C": 20,
     "D": 15,
     "E": 40,
+    "F": 10,
 }
 
 offers = {
@@ -16,7 +17,8 @@ offers = {
 }
 
 special_offers = {
-    "E": (2, "B")
+    "E": (2, "B"),
+    "F": (2, "F"),
 }
 
 def checkout(skus):
@@ -24,6 +26,7 @@ def checkout(skus):
     sum = 0
     for code, (needed, free_item) in special_offers.items():
         if skus_counter.get(code):
+            
             num_free_items = skus_counter.get(code) // needed
             if free_item in skus_counter:
                 skus_counter[free_item] = max(0, skus_counter[free_item] - num_free_items)
@@ -45,3 +48,4 @@ def checkout(skus):
             if occurance > 0:
                 sum += occurance * items.get(code)
     return sum
+
