@@ -27,8 +27,8 @@ items = {
     "V": 50,
     "W": 20,
     "X": 17,
-    "Y": 10,
-    "Z": 50,
+    "Y": 20,
+    "Z": 21,
 }
 
 offers = {
@@ -100,6 +100,7 @@ def checkout(skus):
             if occurance > 0:
                 sum += occurance * items.get(code)
     return sum
+
 
 
 
