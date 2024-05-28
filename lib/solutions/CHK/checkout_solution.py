@@ -56,7 +56,7 @@ def checkout(skus):
         if skus_counter.get(code) and free_item in skus_counter:
             applied = 0
             while True:
-                num_free_items = (skus_counter.get(code) // needed) - applied # 3 // 3 
+                num_free_items = (skus_counter.get(code) // needed) - applied
                 if num_free_items > 0:
                     if code == free_item and skus_counter.get(code) <= needed:
                         break
@@ -82,6 +82,7 @@ def checkout(skus):
             if occurance > 0:
                 sum += occurance * items.get(code)
     return sum
+
 
 
 
