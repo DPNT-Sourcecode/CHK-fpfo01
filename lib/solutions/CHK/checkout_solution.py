@@ -32,8 +32,10 @@ def checkout(skus):
                 print('no items ', skus_counter.get(code))
                 # num_free_items = max((skus_counter.get(code) // needed) - applied, 0)
                 num_free_items = skus_counter.get(code) // needed
-                num_free_items = int(num_free_items) - applied
-                print('no free items ', num_free_items)
+                print('no free items ', type(num_free_items))
+                print(type(applied), applied)
+                # num_free_items -= applied
+                print(num_free_items)
                 if num_free_items > 0:
                     skus_counter[free_item] = max(0, skus_counter[free_item] - 1)
                     iterations -= 1
@@ -56,5 +58,6 @@ def checkout(skus):
             if occurance > 0:
                 sum += occurance * items.get(code)
     return sum
+
 
 
