@@ -49,6 +49,10 @@ special_offers = {
     "U": (3, "U"),
 }
 
+group_offers = {
+    ("S", "T", "X", "Y", "Z") # 3 items for 45
+}
+
 def checkout(skus):
     skus_counter = Counter(list(skus))
     sum = 0
@@ -82,6 +86,7 @@ def checkout(skus):
             if occurance > 0:
                 sum += occurance * items.get(code)
     return sum
+
 
 
 
