@@ -78,5 +78,3 @@ def test_checkout():
 
     result = checkout("EEEBB")
     assert result == 150
-
-
